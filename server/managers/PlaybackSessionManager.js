@@ -8,7 +8,7 @@ const Database = require('../Database')
 const date = require('date-and-time')
 const fs = require('../libs/fsExtra')
 const uaParserJs = require('../libs/uaParser')
-const requestIp = require('../libs/requestIp')
+const requestIp = require('request-ip')
 
 const { PlayMethod } = require('../utils/constants')
 
