@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const cron = require('../libs/nodeCron')
+const cron = require('node-cron')
 const Logger = require('../Logger')
 const Database = require('../Database')
 const LibraryScanner = require('../scanner/LibraryScanner')

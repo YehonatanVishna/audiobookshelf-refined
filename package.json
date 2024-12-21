@@ -55,6 +55,7 @@
     "jsonwebtoken": "^9.0.2",
     "libarchive.js": "^2.0.2",
     "lru-cache": "^10.0.3",
+    "node-cron": "^3.0.3",
     "node-unrar-js": "^2.0.2",
     "nodemailer": "^6.9.13",
     "openid-client": "^5.6.1",

@@ -8,7 +8,7 @@ const Database = require('../Database')
 const Watcher = require('../Watcher')
 
 const libraryItemFilters = require('../utils/queries/libraryItemFilters')
-const patternValidation = require('../libs/nodeCron/pattern-validation')
+const patternValidation = require('node-cron/src/pattern-validation')
 const { isObject, getTitleIgnorePrefix } = require('../utils/index')
 const { sanitizeFilename } = require('../utils/fileUtils')
 

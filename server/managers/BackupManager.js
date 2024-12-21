@@ -4,7 +4,7 @@ const Logger = require('../Logger')
 const SocketAuthority = require('../SocketAuthority')
 const Database = require('../Database')
 
-const cron = require('../libs/nodeCron')
+const cron = require('node-cron')
 const fs = require('../libs/fsExtra')
 const archiver = require('archiver')
 const StreamZip = require('../libs/nodeStreamZip')
