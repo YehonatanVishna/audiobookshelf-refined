@@ -3,7 +3,7 @@ const uuidv4 = require('uuid').v4
 const FeedMeta = require('./FeedMeta')
 const FeedEpisode = require('./FeedEpisode')
 
-const date = require('../libs/dateAndTime')
+const date = require('date-and-time')
 const RSS = require('../libs/rss')
 const { createNewSortInstance } = require('../libs/fastSort')
 const naturalSort = createNewSortInstance({

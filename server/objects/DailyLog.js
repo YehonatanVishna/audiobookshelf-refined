@@ -1,12 +1,12 @@
 const Path = require('path')
-const date = require('../libs/dateAndTime')
+const date = require('date-and-time')
 const fs = require('../libs/fsExtra')
 const fileUtils = require('../utils/fileUtils')
 const Logger = require('../Logger')
 
 class DailyLog {
   /**
-   * 
+   *
    * @param {string} dailyLogDirPath Path to daily logs /metadata/logs/daily
    */
   constructor(dailyLogDirPath) {
@@ -59,8 +59,8 @@ class DailyLog {
   }
 
   /**
-   * 
-   * @param {import('../managers/LogManager').LogObject} logObj 
+   *
+   * @param {import('../managers/LogManager').LogObject} logObj
    */
   appendLog(logObj) {
     this.logs.push(logObj)
@@ -69,8 +69,8 @@ class DailyLog {
 
   /**
    * Append log to daily log file
-   * 
-   * @param {string} line 
+   *
+   * @param {string} line
    */
   async appendLogLine(line) {
     if (this.locked) {
@@ -79,7 +79,7 @@ class DailyLog {
     }
     this.locked = true
 
-    await fs.writeFile(this.fullPath, line, { flag: "a+" }).catch((error) => {
+    await fs.writeFile(this.fullPath, line, { flag: 'a+' }).catch((error) => {
       console.log('[DailyLog] Append log failed', error)
     })
 
@@ -94,7 +94,7 @@ class DailyLog {
    * Parses lines and re-saves the file if bad lines are removed
    */
   async loadLogs() {
-    if (!await fs.pathExists(this.fullPath)) {
+    if (!(await fs.pathExists(this.fullPath))) {
       console.error('Daily log does not exist')
       return
     }
@@ -108,23 +108,25 @@ class DailyLog {
     if (logLines.length && !logLines[logLines.length - 1]) logLines = logLines.slice(0, -1)
 
     // JSON parse log lines
-    this.logs = logLines.map(t => {
-      if (!t) {
-        hasFailures = true
-        return null
-      }
-      try {
-        return JSON.parse(t)
-      } catch (err) {
-        console.error('Failed to parse log line', t, err)
-        hasFailures = true
-        return null
-      }
-    }).filter(l => !!l)
+    this.logs = logLines
+      .map((t) => {
+        if (!t) {
+          hasFailures = true
+          return null
+        }
+        try {
+          return JSON.parse(t)
+        } catch (err) {
+          console.error('Failed to parse log line', t, err)
+          hasFailures = true
+          return null
+        }
+      })
+      .filter((l) => !!l)
 
     // Rewrite log file to remove errors
     if (hasFailures) {
-      const newLogLines = this.logs.map(l => JSON.stringify(l)).join('\n') + '\n'
+      const newLogLines = this.logs.map((l) => JSON.stringify(l)).join('\n') + '\n'
       await fs.writeFile(this.fullPath, newLogLines)
       console.log('Re-Saved log file to remove bad lines')
     }

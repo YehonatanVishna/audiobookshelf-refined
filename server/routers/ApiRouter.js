@@ -7,7 +7,7 @@ const Database = require('../Database')
 const SocketAuthority = require('../SocketAuthority')
 
 const fs = require('../libs/fsExtra')
-const date = require('../libs/dateAndTime')
+const date = require('date-and-time')
 
 const CacheManager = require('../managers/CacheManager')
 

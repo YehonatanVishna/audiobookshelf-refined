@@ -1,6 +1,6 @@
 const Path = require('path')
 const uuidv4 = require('uuid').v4
-const date = require('../libs/dateAndTime')
+const date = require('date-and-time')
 const { secondsToTimestamp } = require('../utils/index')
 
 class FeedEpisode {
