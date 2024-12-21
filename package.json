@@ -36,6 +36,7 @@
   "author": "advplyr",
   "license": "GPL-3.0",
   "dependencies": {
+    "@rxstack/express-file-upload": "^0.2.0",
     "archiver": "^7.0.1",
     "async": "^3.2.6",
     "axios": "^0.27.2",

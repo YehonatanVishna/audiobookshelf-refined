@@ -4,7 +4,7 @@ const express = require('express')
 const http = require('http')
 const util = require('util')
 const fs = require('./libs/fsExtra')
-const fileUpload = require('./libs/expressFileupload')
+const fileUpload = require('@rxstack/express-file-upload')
 const cookieParser = require('cookie-parser')
 
 const { version } = require('../package.json')
