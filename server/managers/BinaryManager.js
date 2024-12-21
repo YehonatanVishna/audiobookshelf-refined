@@ -8,7 +8,7 @@ const which = require('../libs/which')
 const fs = require('../libs/fsExtra')
 const Logger = require('../Logger')
 const fileUtils = require('../utils/fileUtils')
-const StreamZip = require('../libs/nodeStreamZip')
+const StreamZip = require('node-stream-zip')
 
 class ZippedAssetDownloader {
   constructor() {

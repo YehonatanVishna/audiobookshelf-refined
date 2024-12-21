@@ -4,7 +4,7 @@ const Path = require('path')
 const Logger = require('../../Logger')
 const fs = require('../../libs/fsExtra')
 const archiver = require('../../libs/archiver')
-const StreamZip = require('../../libs/nodeStreamZip')
+const StreamZip = require('node-stream-zip')
 
 async function processDbFile(filepath) {
   if (!fs.pathExistsSync(filepath)) {
@@ -19,7 +19,7 @@ async function processDbFile(filepath) {
 
     const rl = createInterface({
       input: fileStream,
-      crlfDelay: Infinity,
+      crlfDelay: Infinity
     })
 
     rl.on('line', (line) => {
@@ -73,7 +73,7 @@ async function loadDbData(dbpath) {
 
 module.exports.loadOldData = async (dbName) => {
   const dbPath = Path.join(global.ConfigPath, dbName, 'data')
-  const dbData = await loadDbData(dbPath) || []
+  const dbData = (await loadDbData(dbPath)) || []
   Logger.info(`[oldDbFiles] ${dbData.length} ${dbName} loaded`)
   return dbData
 }
@@ -161,7 +161,7 @@ module.exports.checkHasOldDb = async () => {
 
 module.exports.checkHasOldDbZip = async () => {
   const oldDbPath = Path.join(global.ConfigPath, 'oldDb.zip')
-  if (!await fs.pathExists(oldDbPath)) {
+  if (!(await fs.pathExists(oldDbPath))) {
     return false
   }
 
@@ -184,7 +184,7 @@ module.exports.checkExtractItemsUsersAndLibraries = async () => {
   const libraryItemsPath = Path.join(global.ConfigPath, 'libraryItems')
   await zip.extract('libraryItems/', libraryItemsPath)
 
-  if (!await fs.pathExists(libraryItemsPath)) {
+  if (!(await fs.pathExists(libraryItemsPath))) {
     Logger.error(`[oldDbFiles] Failed to extract old libraryItems from oldDb.zip`)
     return false
   }
@@ -192,7 +192,7 @@ module.exports.checkExtractItemsUsersAndLibraries = async () => {
   const usersPath = Path.join(global.ConfigPath, 'users')
   await zip.extract('users/', usersPath)
 
-  if (!await fs.pathExists(usersPath)) {
+  if (!(await fs.pathExists(usersPath))) {
     Logger.error(`[oldDbFiles] Failed to extract old users from oldDb.zip`)
     await fs.remove(libraryItemsPath) // Remove old library items folder
     return false
@@ -201,7 +201,7 @@ module.exports.checkExtractItemsUsersAndLibraries = async () => {
   const librariesPath = Path.join(global.ConfigPath, 'libraries')
   await zip.extract('libraries/', librariesPath)
 
-  if (!await fs.pathExists(librariesPath)) {
+  if (!(await fs.pathExists(librariesPath))) {
     Logger.error(`[oldDbFiles] Failed to extract old libraries from oldDb.zip`)
     await fs.remove(usersPath) // Remove old users folder
     await fs.remove(libraryItemsPath) // Remove old library items folder

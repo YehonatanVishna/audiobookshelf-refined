@@ -3,7 +3,7 @@ const os = require('os')
 const unrar = require('node-unrar-js')
 const Logger = require('../Logger')
 const fs = require('../libs/fsExtra')
-const StreamZip = require('../libs/nodeStreamZip')
+const StreamZip = require('node-stream-zip')
 const Archive = require('libarchive.js')
 const { isWritable } = require('./fileUtils')
 

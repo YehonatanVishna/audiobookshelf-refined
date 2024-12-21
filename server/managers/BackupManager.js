@@ -7,7 +7,7 @@ const Database = require('../Database')
 const cron = require('node-cron')
 const fs = require('../libs/fsExtra')
 const archiver = require('archiver')
-const StreamZip = require('../libs/nodeStreamZip')
+const StreamZip = require('node-stream-zip')
 const fileUtils = require('../utils/fileUtils')
 
 // Utils
