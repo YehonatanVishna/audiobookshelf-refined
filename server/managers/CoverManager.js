@@ -1,7 +1,7 @@
 const fs = require('../libs/fsExtra')
 const Path = require('path')
 const Logger = require('../Logger')
-const readChunk = require('../libs/readChunk')
+const readChunk = require('read-chunk')
 const imageType = require('image-type')
 
 const globals = require('../utils/globals')
