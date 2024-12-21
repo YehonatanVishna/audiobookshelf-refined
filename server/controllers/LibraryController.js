@@ -9,7 +9,7 @@ const libraryItemsBookFilters = require('../utils/queries/libraryItemsBookFilter
 const libraryItemFilters = require('../utils/queries/libraryItemFilters')
 const seriesFilters = require('../utils/queries/seriesFilters')
 const fileUtils = require('../utils/fileUtils')
-const { createNewSortInstance } = require('../libs/fastSort')
+const { createNewSortInstance } = require('fast-sort')
 const naturalSort = createNewSortInstance({
   comparer: new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' }).compare
 })

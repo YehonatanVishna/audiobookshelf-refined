@@ -5,7 +5,7 @@ const FeedEpisode = require('./FeedEpisode')
 
 const date = require('date-and-time')
 const RSS = require('../libs/rss')
-const { createNewSortInstance } = require('../libs/fastSort')
+const { createNewSortInstance } = require('fast-sort')
 const naturalSort = createNewSortInstance({
   comparer: new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' }).compare
 })

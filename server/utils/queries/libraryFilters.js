@@ -3,7 +3,7 @@ const Logger = require('../../Logger')
 const Database = require('../../Database')
 const libraryItemsBookFilters = require('./libraryItemsBookFilters')
 const libraryItemsPodcastFilters = require('./libraryItemsPodcastFilters')
-const { createNewSortInstance } = require('../../libs/fastSort')
+const { createNewSortInstance } = require('fast-sort')
 const naturalSort = createNewSortInstance({
   comparer: new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' }).compare
 })
