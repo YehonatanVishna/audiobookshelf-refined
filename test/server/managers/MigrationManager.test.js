@@ -5,7 +5,7 @@ const fs = require('../../../server/libs/fsExtra')
 const Logger = require('../../../server/Logger')
 const MigrationManager = require('../../../server/managers/MigrationManager')
 const path = require('path')
-const { Umzug, memoryStorage } = require('../../../server/libs/umzug')
+const { Umzug, memoryStorage } = require('umzug')
 
 describe('MigrationManager', () => {
   let sequelizeStub

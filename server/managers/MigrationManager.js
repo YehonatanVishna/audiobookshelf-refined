@@ -1,4 +1,4 @@
-const { Umzug, SequelizeStorage } = require('../libs/umzug')
+const { Umzug, SequelizeStorage } = require('umzug')
 const { Sequelize, DataTypes } = require('sequelize')
 const semver = require('semver')
 const path = require('path')
