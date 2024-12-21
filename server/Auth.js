@@ -1,7 +1,7 @@
 const axios = require('axios')
 const passport = require('passport')
 const { Request, Response, NextFunction } = require('express')
-const bcrypt = require('./libs/bcryptjs')
+const bcrypt = require('bcryptjs')
 const jwt = require('./libs/jsonwebtoken')
 const requestIp = require('./libs/requestIp')
 const LocalStrategy = require('./libs/passportLocal')
