@@ -1,19 +1,19 @@
 const Path = require('path')
-const fsExtra = require('../libs/fsExtra')
+const fsExtra = require('fs-extra')
 const { readTextFile } = require('../utils/fileUtils')
 const { LogLevel } = require('../utils/constants')
 const abmetadataGenerator = require('../utils/generators/abmetadataGenerator')
 
 class AbsMetadataFileScanner {
-  constructor() { }
+  constructor() {}
 
   /**
    * Check for metadata.json file and set book metadata
-   * 
-   * @param {import('./LibraryScan')} libraryScan 
-   * @param {import('./LibraryItemScanData')} libraryItemData 
-   * @param {Object} bookMetadata 
-   * @param {string} [existingLibraryItemId] 
+   *
+   * @param {import('./LibraryScan')} libraryScan
+   * @param {import('./LibraryItemScanData')} libraryItemData
+   * @param {Object} bookMetadata
+   * @param {string} [existingLibraryItemId]
    */
   async scanBookMetadataFile(libraryScan, libraryItemData, bookMetadata, existingLibraryItemId = null) {
     const metadataLibraryFile = libraryItemData.metadataJsonLibraryFile
@@ -48,11 +48,11 @@ class AbsMetadataFileScanner {
 
   /**
    * Check for metadata.json file and set podcast metadata
-   * 
-   * @param {import('./LibraryScan')} libraryScan 
-   * @param {import('./LibraryItemScanData')} libraryItemData 
-   * @param {Object} podcastMetadata 
-   * @param {string} [existingLibraryItemId] 
+   *
+   * @param {import('./LibraryScan')} libraryScan
+   * @param {import('./LibraryItemScanData')} libraryItemData
+   * @param {Object} podcastMetadata
+   * @param {string} [existingLibraryItemId]
    */
   async scanPodcastMetadataFile(libraryScan, libraryItemData, podcastMetadata, existingLibraryItemId = null) {
     const metadataLibraryFile = libraryItemData.metadataJsonLibraryFile

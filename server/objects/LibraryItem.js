@@ -1,5 +1,5 @@
 const uuidv4 = require('uuid').v4
-const fs = require('../libs/fsExtra')
+const fs = require('fs-extra')
 const Path = require('path')
 const Logger = require('../Logger')
 const LibraryFile = require('./files/LibraryFile')

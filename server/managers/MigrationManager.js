@@ -3,7 +3,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 const semver = require('semver')
 const path = require('path')
 const Module = require('module')
-const fs = require('../libs/fsExtra')
+const fs = require('fs-extra')
 const Logger = require('../Logger')
 
 class MigrationManager {

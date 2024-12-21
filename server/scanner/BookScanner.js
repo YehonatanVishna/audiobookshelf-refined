@@ -13,7 +13,7 @@ const AudioFile = require('../objects/files/AudioFile')
 const CoverManager = require('../managers/CoverManager')
 const LibraryFile = require('../objects/files/LibraryFile')
 const SocketAuthority = require('../SocketAuthority')
-const fsExtra = require('../libs/fsExtra')
+const fsExtra = require('fs-extra')
 const BookFinder = require('../finders/BookFinder')
 
 const LibraryScan = require('./LibraryScan')

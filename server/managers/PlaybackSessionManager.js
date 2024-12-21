@@ -6,7 +6,7 @@ const SocketAuthority = require('../SocketAuthority')
 const Database = require('../Database')
 
 const date = require('date-and-time')
-const fs = require('../libs/fsExtra')
+const fs = require('fs-extra')
 const uaParserJs = require('ua-parser-js')
 const requestIp = require('request-ip')
 

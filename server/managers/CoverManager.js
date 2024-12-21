@@ -1,4 +1,4 @@
-const fs = require('../libs/fsExtra')
+const fs = require('fs-extra')
 const Path = require('path')
 const Logger = require('../Logger')
 const readChunk = require('read-chunk')

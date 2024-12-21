@@ -1,7 +1,7 @@
 const axios = require('axios')
 const Ffmpeg = require('fluent-ffmpeg')
 const ffmpgegUtils = require('fluent-ffmpeg')
-const fs = require('../libs/fsExtra')
+const fs = require('fs-extra')
 const Path = require('path')
 const Logger = require('../Logger')
 const { filePathToPOSIX, copyToExisting } = require('./fileUtils')

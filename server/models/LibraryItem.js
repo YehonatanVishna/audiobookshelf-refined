@@ -1,7 +1,7 @@
 const util = require('util')
 const Path = require('path')
 const { DataTypes, Model } = require('sequelize')
-const fsExtra = require('../libs/fsExtra')
+const fsExtra = require('fs-extra')
 const Logger = require('../Logger')
 const oldLibraryItem = require('../objects/LibraryItem')
 const libraryFilters = require('../utils/queries/libraryFilters')

@@ -6,7 +6,7 @@ const Logger = require('../Logger')
 const Database = require('../Database')
 const SocketAuthority = require('../SocketAuthority')
 
-const fs = require('../libs/fsExtra')
+const fs = require('fs-extra')
 const date = require('date-and-time')
 
 const CacheManager = require('../managers/CacheManager')

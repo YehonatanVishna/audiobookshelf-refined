@@ -3,7 +3,7 @@ const SocketAuthority = require('../SocketAuthority')
 const Database = require('../Database')
 const Watcher = require('../Watcher')
 
-const fs = require('../libs/fsExtra')
+const fs = require('fs-extra')
 
 const { getPodcastFeed } = require('../utils/podcastUtils')
 const { removeFile, downloadFile, sanitizeFilename, filePathToPOSIX, getFileTimestampsWithIno } = require('../utils/fileUtils')

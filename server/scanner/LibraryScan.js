@@ -1,6 +1,6 @@
 const Path = require('path')
 const uuidv4 = require('uuid').v4
-const fs = require('../libs/fsExtra')
+const fs = require('fs-extra')
 const date = require('date-and-time')
 
 const Logger = require('../Logger')

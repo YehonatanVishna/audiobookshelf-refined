@@ -4,7 +4,7 @@ const Logger = require('../Logger')
 const SocketAuthority = require('../SocketAuthority')
 const Database = require('../Database')
 
-const fs = require('../libs/fsExtra')
+const fs = require('fs-extra')
 const Feed = require('../objects/Feed')
 const libraryItemsBookFilters = require('../utils/queries/libraryItemsBookFilters')
 

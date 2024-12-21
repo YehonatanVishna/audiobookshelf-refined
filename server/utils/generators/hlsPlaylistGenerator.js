@@ -1,21 +1,14 @@
-const fs = require('../../libs/fsExtra')
+const fs = require('../fs-extra')
 
 function getPlaylistStr(segmentName, duration, segmentLength, hlsSegmentType, token) {
   var ext = hlsSegmentType === 'fmp4' ? 'm4s' : 'ts'
 
-  var lines = [
-    '#EXTM3U',
-    '#EXT-X-VERSION:3',
-    '#EXT-X-ALLOW-CACHE:NO',
-    '#EXT-X-TARGETDURATION:6',
-    '#EXT-X-MEDIA-SEQUENCE:0',
-    '#EXT-X-PLAYLIST-TYPE:VOD'
-  ]
+  var lines = ['#EXTM3U', '#EXT-X-VERSION:3', '#EXT-X-ALLOW-CACHE:NO', '#EXT-X-TARGETDURATION:6', '#EXT-X-MEDIA-SEQUENCE:0', '#EXT-X-PLAYLIST-TYPE:VOD']
   if (hlsSegmentType === 'fmp4') {
     lines.push('#EXT-X-MAP:URI="init.mp4"')
   }
   var numSegments = Math.floor(duration / segmentLength)
-  var lastSegment = duration - (numSegments * segmentLength)
+  var lastSegment = duration - numSegments * segmentLength
   for (let i = 0; i < numSegments; i++) {
     lines.push(`#EXTINF:6,`)
     lines.push(`${segmentName}-${i}.${ext}?token=${token}`)

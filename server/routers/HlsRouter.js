@@ -4,8 +4,7 @@ const Path = require('path')
 const Logger = require('../Logger')
 const SocketAuthority = require('../SocketAuthority')
 
-const fs = require('../libs/fsExtra')
-
+const fs = require('fs-extra')
 
 class HlsRouter {
   constructor(auth, playbackSessionManager) {
@@ -31,9 +30,9 @@ class HlsRouter {
    * Ensure filepath is inside streamDir
    * Used to prevent arbitrary file reads
    * @see https://nodejs.org/api/path.html#pathrelativefrom-to
-   * 
-   * @param {string} streamDir 
-   * @param {string} filepath 
+   *
+   * @param {string} streamDir
+   * @param {string} filepath
    * @returns {boolean}
    */
   validateStreamFilePath(streamDir, filepath) {
@@ -44,9 +43,9 @@ class HlsRouter {
   /**
    * GET /hls/:stream/:file
    * File must have extname .ts or .m3u8
-   * 
-   * @param {express.Request} req 
-   * @param {express.Response} res 
+   *
+   * @param {express.Request} req
+   * @param {express.Response} res
    */
   async streamFileRequest(req, res) {
     const streamId = req.params.stream

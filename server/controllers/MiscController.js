@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const Path = require('path')
 const { Request, Response } = require('express')
-const fs = require('../libs/fsExtra')
+const fs = require('fs-extra')
 const Logger = require('../Logger')
 const SocketAuthority = require('../SocketAuthority')
 const Database = require('../Database')

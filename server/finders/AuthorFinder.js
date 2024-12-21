@@ -1,4 +1,4 @@
-const fs = require('../libs/fsExtra')
+const fs = require('fs-extra')
 const Logger = require('../Logger')
 const Path = require('path')
 const Audnexus = require('../providers/Audnexus')
@@ -16,10 +16,10 @@ class AuthorFinder {
   }
 
   /**
-   * 
-   * @param {string} name 
-   * @param {string} region 
-   * @param {Object} [options={}] 
+   *
+   * @param {string} name
+   * @param {string} region
+   * @param {Object} [options={}]
    * @returns {Promise<import('../providers/Audnexus').AuthorSearchObj>}
    */
   async findAuthorByName(name, region, options = {}) {
@@ -35,15 +35,15 @@ class AuthorFinder {
 
   /**
    * Download author image from url and save in authors folder
-   * 
-   * @param {string} authorId 
-   * @param {string} url 
+   *
+   * @param {string} authorId
+   * @param {string} url
    * @returns {Promise<{path:string, error:string}>}
    */
   async saveAuthorImage(authorId, url) {
     const authorDir = Path.join(global.MetadataPath, 'authors')
 
-    if (!await fs.pathExists(authorDir)) {
+    if (!(await fs.pathExists(authorDir))) {
       await fs.ensureDir(authorDir)
     }
 
@@ -52,17 +52,19 @@ class AuthorFinder {
     const filename = authorId + '.' + ext
     const outputPath = Path.posix.join(authorDir, filename)
 
-    return downloadImageFile(url, outputPath).then(() => {
-      return {
-        path: outputPath
-      }
-    }).catch((err) => {
-      let errorMsg = err.message || 'Unknown error'
-      Logger.error(`[AuthorFinder] Download image file failed for "${url}"`, errorMsg)
-      return {
-        error: errorMsg
-      }
-    })
+    return downloadImageFile(url, outputPath)
+      .then(() => {
+        return {
+          path: outputPath
+        }
+      })
+      .catch((err) => {
+        let errorMsg = err.message || 'Unknown error'
+        Logger.error(`[AuthorFinder] Download image file failed for "${url}"`, errorMsg)
+        return {
+          error: errorMsg
+        }
+      })
   }
 }
 module.exports = new AuthorFinder()
