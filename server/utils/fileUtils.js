@@ -3,7 +3,7 @@ const Path = require('path')
 const ssrfFilter = require('ssrf-req-filter')
 const exec = require('child_process').exec
 const fs = require('../libs/fsExtra')
-const rra = require('../libs/recursiveReaddirAsync')
+const rra = require('recursive-readdir-async')
 const Logger = require('../Logger')
 const { AudioMimeType } = require('./constants')
 
