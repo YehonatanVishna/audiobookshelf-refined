@@ -1,10 +1,10 @@
-const xml = require('../../libs/xml')
-const escapeForXML = require('../../libs/xml/escapeForXML')
+const xml = require('xml')
+const escapeForXML = require('xml/escapeForXML')
 
 /**
  * Generate OPML file string for podcasts in a library
- * @param {import('../../models/Podcast')[]} podcasts 
- * @param {boolean} [indent=true] 
+ * @param {import('../../models/Podcast')[]} podcasts
+ * @param {boolean} [indent=true]
  * @returns {string}
  */
 module.exports.generate = (podcasts, indent = true) => {
