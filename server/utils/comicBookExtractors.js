@@ -4,7 +4,7 @@ const unrar = require('node-unrar-js')
 const Logger = require('../Logger')
 const fs = require('../libs/fsExtra')
 const StreamZip = require('../libs/nodeStreamZip')
-const Archive = require('../libs/libarchive/archive')
+const Archive = require('libarchive.js')
 const { isWritable } = require('./fileUtils')
 
 class AbstractComicBookExtractor {
