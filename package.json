@@ -51,6 +51,7 @@
     "fs-extra": "^11.2.0",
     "graceful-fs": "^4.2.10",
     "htmlparser2": "^8.0.1",
+    "image-type": "^5.2.0",
     "lru-cache": "^10.0.3",
     "node-unrar-js": "^2.0.2",
     "nodemailer": "^6.9.13",
